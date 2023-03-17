@@ -28,7 +28,8 @@ export default function Home() {
 
   useEffect(() => {
     async function getNotes() {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notes`);
+      const nextPublicAPIUrl = process.env.NEXT_PUBLIC_API_URL;
+      const res = await fetch(`${nextPublicAPIUrl ?? ""}/notes`);
       const { data } = await res.json();
       return {
         data: {
